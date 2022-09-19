@@ -1,11 +1,11 @@
 import requests as r
 from bs4 import BeautifulSoup
 
-URL = "https://realpython.github.io/fake-jobs/"
+URL = "https://www.scrapethissite.com/pages/simple/"
 page = r.get(URL)
 
 soup = BeautifulSoup(page.content, "html.parser")
 
-results = soup.find(id="ResultsContainer")
+results = soup.find(id="countries")
 
 print(results.prettify())
