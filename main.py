@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 URL = "https://www.scrapethissite.com/pages/simple/"
 page = r.get(URL)
 
-soup = BeautifulSoup(page.content, "html.parser")
+soup = BeautifulSoup(page.content, "lxml")
 
-results = soup.find(id="countries")
+results = soup.find_all('h3', class_='country-name')
 
-print(results.prettify())
+for result in results:
+    print(result.prettify())
